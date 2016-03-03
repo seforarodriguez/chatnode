@@ -1,14 +1,23 @@
 'use strict'
 
-const app = require('express')()
+const express = require('express')
+  ,    app = express()
   ,   server = require('http').createServer(app)
-  ,   io = require('socket.io')(server)
+  ,   ws = require('socket.io')(server)
   ,   PORT = process.env.PORT || 3000
 
-  app.get('/', (req, res) => {
-    res.send('hello')
+app.set('view engine', 'jade')
+
+app.use(express.static('public'))
+
+app.get('/', (req, res) => {
+    res.render('index')
   })
 
-  server.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`Server listening on port: ${PORT}`)
   })
+
+ws.on('connection', socket => {
+  console.log('socket Connected')
+})

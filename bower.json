@@ -1,0 +1,24 @@
+{
+  "name": "chatnode",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "“Sefora"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/seforarodriguez/chatnode",
+  "moduleType": [
+    "es6",
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "socket.io-client": "^1.4.5"
+  }
+}
