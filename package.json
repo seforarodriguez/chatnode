@@ -1,0 +1,24 @@
+{
+  "name": "chatnode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seforarodriguez/chatnode.git"
+  },
+  "author": "“Sefora",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seforarodriguez/chatnode/issues"
+  },
+  "homepage": "https://github.com/seforarodriguez/chatnode#readme",
+  "devDependencies": {
+    "nodemon": "^1.9.1"
+  }
+}
