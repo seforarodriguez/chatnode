@@ -12,22 +12,20 @@
   const ul = document.querySelector('ul')
 
   form.addEventListener('submit', () => {
-    const [n, t] = [name.value, text.value]
-    
-    ws.emit('sendChat', {
-      name: n,
-      text: t
-    })
+    const chat = {
+      name:name.value,
+      text: text.value
+    }
 
-    displayChat(n, t)  
-
+    ws.emit('sendChat', chat)
+    displayChat(chat)
+    text.value = ''
     event.preventDefault()
   })
 
   function displayChat () {
-    const li = generateLI(name.value, text.value)
+    const li = generateLI(chat.name, chat.text)
 
-    text.value = ''
     ul.appendChild(li)
   }
 
@@ -39,11 +37,17 @@
     return li
   }
 
-  function getJSON(url, db) {
+  function getJSON(url, cb) {
     const request = new XMLHttpRequest()
     request.open('GET', url)
 
-    request
+    request.onload = () => {
+      cd(JSON.parse(request.responseText))
+    }
+    request.send()
   }
+
+
+
 
 })();
